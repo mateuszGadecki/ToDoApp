@@ -1,0 +1,23 @@
+.TaskNav {
+  height: 5rem;
+  margin: 1rem 0;
+  padding: 0 1.5rem;
+  width: 100%;
+  background-color: #25273c;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.TaskNav__filters {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.TaskNav__amount {
+  color: #777a92;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+}
