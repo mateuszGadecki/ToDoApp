@@ -2,3 +2,9 @@
   width: 37%;
   margin: 0 auto;
 }
+
+.Tasks__List {
+  list-style: none;
+  margin: 2rem 0 0 0;
+  padding: 0 0 5rem 0;
+}

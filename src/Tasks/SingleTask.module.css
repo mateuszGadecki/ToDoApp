@@ -1,0 +1,91 @@
+.SingleTask {
+  width: 100%;
+  background-color: var(--darkThemeElements);
+  border-radius: 10px;
+  height: 4rem;
+  margin-top: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0 1.5rem;
+}
+
+.SingleTask__taskDescription {
+  color: var(--taskDescription);
+  font-size: 1.4rem;
+}
+
+.SingleTask__closeBtn {
+  background: none;
+  outline: none;
+  border: none;
+  color: #777a92;
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.SingleTask__closeBtn:hover,
+.SingleTask__closeBtn:active {
+  transform: scale(1.1);
+  color: var(--buttonHover);
+}
+
+.SingleTask__inputContainter {
+  display: block;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+.SingleTask__input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.SingleTask__checkmark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: var(--checkbox);
+}
+
+.SingleTask__inputContainter:hover .SingleTask__input ~ .SingleTask__checkmark {
+  background-color: #ccc;
+}
+
+.SingleTask__inputContainter
+  .SingleTask__input:checked
+  ~ .SingleTask__checkmark {
+  background-color: #2196f3;
+}
+
+.SingleTask__checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.SingleTask__inputContainter
+  .SingleTask__input:checked
+  ~ .SingleTask__checkmark:after {
+  display: block;
+}
+
+.SingleTask__inputContainter .SingleTask__checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 0.4rem;
+  height: 0.8rem;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
