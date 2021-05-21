@@ -12,8 +12,26 @@ html {
 
 body {
   margin: 0;
-  background-color: #161722;
-  background-image: url("./assets/bg-desktop-dark.jpeg");
+  background-color: var(--darkThemeBackground);
+  background-image: var(--backgroundImage);
   background-repeat: no-repeat;
   background-size: 100vw 30rem;
+}
+
+:root {
+  --darkThemeElements: #383b5c;
+  --darkThemeBackground: #161722;
+  --backgroundImage: url("./assets/bg-desktop-dark.jpeg");
+  --checkbox: #ddd;
+  --taskDescription: #c2c4ce;
+  --buttonHover: #fff;
+}
+
+.light {
+  --darkThemeElements: #e1e1e1;
+  --darkThemeBackground: #fafafa;
+  --backgroundImage: url("./assets/bg-desktop-light.jpeg");
+  --checkbox: #fff;
+  --taskDescription: #000;
+  --buttonHover: #000;
 }

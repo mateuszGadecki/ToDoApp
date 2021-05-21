@@ -9,12 +9,11 @@
 .CreateTask__input {
   width: 100%;
   border: none;
-  background-color: #25273c;
+  background-color: var(--darkThemeElements);
   height: 80%;
   border-radius: 10px;
   padding-left: 2.5rem;
   outline: none;
-
   color: #fff;
 }
 

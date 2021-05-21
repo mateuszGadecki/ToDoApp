@@ -3,7 +3,7 @@
   margin: 1rem 0;
   padding: 0 1.5rem;
   width: 100%;
-  background-color: #25273c;
+  background-color: var(--darkThemeElements);
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
