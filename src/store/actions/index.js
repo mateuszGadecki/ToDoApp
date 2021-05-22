@@ -1,1 +1,7 @@
-export { initToDoList, addTask, removeTask, completedTask } from "./toDoList";
+export {
+  initToDoList,
+  addTask,
+  removeTask,
+  completedTask,
+  displayFilteredTasks,
+} from "./toDoList";

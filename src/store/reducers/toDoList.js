@@ -5,6 +5,7 @@ const initialState = {
   toDoList: [],
   completed: [],
   active: [],
+  currFilter: "All",
 };
 
 const initToDoListStart = (state, action) => {
@@ -99,6 +100,13 @@ export const filterTasks = (tasks) => {
   };
 };
 
+const displayFilteredTasks = (state, action) => {
+  return {
+    ...state,
+    currFilter: action.currFilter,
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_TODOLIST:
@@ -113,6 +121,8 @@ const reducer = (state = initialState, action) => {
       return removeTask(state, action);
     case actionTypes.COMPLETED_TASK:
       return completedTask(state, action);
+    case actionTypes.DISPLAY_FILTERED_TASKS:
+      return displayFilteredTasks(state, action);
     default:
       return state;
   }
