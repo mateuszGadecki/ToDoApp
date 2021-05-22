@@ -7,9 +7,7 @@ const SingleTask = (props) => {
         <input className={classes.SingleTask__input} type="checkbox" />
         <span className={classes.SingleTask__checkmark}></span>
       </label>
-      <p className={classes.SingleTask__taskDescription}>
-        {props.taskDescription}
-      </p>
+      <p className={classes.SingleTask__taskDescription}>{props.taskTitle}</p>
       <button className={classes.SingleTask__closeBtn}>X</button>
     </li>
   );
