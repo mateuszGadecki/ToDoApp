@@ -3,6 +3,8 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   loading: false,
   toDoList: [],
+  completed: [],
+  active: [],
 };
 
 const initToDoListStart = (state, action) => {
@@ -19,10 +21,13 @@ const initToDoListFail = (state, action) => {
 };
 
 const setToDoList = (state, action) => {
+  const filtered = filterTasks(action.toDoList);
   return {
     ...state,
     toDoList: action.toDoList,
     loading: false,
+    completed: filtered.completed,
+    active: filtered.active,
   };
 };
 
@@ -37,9 +42,12 @@ export const addTask = (state, action) => {
     title: action.task,
   };
   toDoList.unshift(task);
+  const filtered = filterTasks(toDoList);
   return {
     ...state,
     toDoList: toDoList,
+    completed: filtered.completed,
+    active: filtered.active,
   };
 };
 
@@ -49,9 +57,12 @@ export const removeTask = (state, action) => {
     currentToDoList.findIndex((id) => id.id === action.id),
     1
   );
+  const filtered = filterTasks(currentToDoList);
   return {
     ...state,
     toDoList: currentToDoList,
+    completed: filtered.completed,
+    active: filtered.active,
   };
 };
 
@@ -59,9 +70,32 @@ export const completedTask = (state, action) => {
   let currentToDoList = [...state.toDoList];
   const index = currentToDoList.findIndex((id) => id.id === action.id);
   currentToDoList[index].completed = action.completionStatus;
+  const filtered = filterTasks(currentToDoList);
   return {
     ...state,
     toDoList: currentToDoList,
+    completed: filtered.completed,
+    active: filtered.active,
+  };
+};
+
+export const filterTasks = (tasks) => {
+  let completed = [];
+  let active = [];
+  tasks.forEach((e) => {
+    if (e.completed) {
+      completed.push(e);
+    }
+  });
+  tasks.forEach((e) => {
+    if (!e.completed) {
+      active.push(e);
+    }
+  });
+
+  return {
+    completed: completed,
+    active: active,
   };
 };
 

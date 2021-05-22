@@ -5,7 +5,9 @@ import classes from "./TaskNav.module.css";
 const TaskNav = (props) => {
   return (
     <div className={classes.TaskNav}>
-      <p className={classes.TaskNav__amount}>3 items left</p>
+      <p className={classes.TaskNav__amount}>
+        {props.tasksLeft.length} items left
+      </p>
       <ul className={classes.TaskNav__filters}>
         <li>
           <Button>All</Button>

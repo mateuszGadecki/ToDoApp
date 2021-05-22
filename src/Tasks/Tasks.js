@@ -35,7 +35,7 @@ const Tasks = (props) => {
   return (
     <div className={classes.Tasks}>
       <CreateTask addTaskHandler={props.onAddTask} />
-      <TaskNav />
+      <TaskNav tasksLeft={props.active} />
       <ul className={classes.Tasks__List}>{singleTask}</ul>
     </div>
   );
@@ -45,6 +45,7 @@ const mapStateToProps = (state) => {
   return {
     toDoList: state.toDoList,
     loading: state.loading,
+    active: state.active,
   };
 };
 
