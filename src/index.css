@@ -24,6 +24,7 @@ body {
   --backgroundImage: url("./assets/bg-desktop-dark.jpeg");
   --checkbox: #ddd;
   --taskDescription: #c2c4ce;
+  --taskDescriptionCompleted: #777b91;
   --buttonHover: #fff;
 }
 
@@ -33,5 +34,6 @@ body {
   --backgroundImage: url("./assets/bg-desktop-light.jpeg");
   --checkbox: #fff;
   --taskDescription: #000;
+  --taskDescriptionCompleted: #888;
   --buttonHover: #000;
 }

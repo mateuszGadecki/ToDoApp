@@ -16,6 +16,11 @@
   font-size: 1.4rem;
 }
 
+.SingleTask__taskDescription--completed {
+  text-decoration: line-through;
+  color: var(--taskDescriptionCompleted);
+}
+
 .SingleTask__closeBtn {
   background: none;
   outline: none;

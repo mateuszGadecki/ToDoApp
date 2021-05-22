@@ -26,6 +26,7 @@ const Tasks = (props) => {
           completed={e.completed}
           taskId={e.id}
           removeHandler={props.onRemoveTask}
+          checkboxHandler={props.onCompletedTask}
         />
       );
     });
@@ -52,6 +53,8 @@ const mapDispatchToProps = (dispatch) => {
     onInitToDoList: () => dispatch(actions.initToDoList()),
     onAddTask: (task) => dispatch(actions.addTask(task)),
     onRemoveTask: (id) => dispatch(actions.removeTask(id)),
+    onCompletedTask: (id, completionStatus) =>
+      dispatch(actions.completedTask(id, completionStatus)),
   };
 };
 

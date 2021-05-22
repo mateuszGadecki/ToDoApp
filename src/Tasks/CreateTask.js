@@ -13,7 +13,9 @@ const CreateTask = (props) => {
 
   const addTaskHandler = (event) => {
     event.preventDefault();
-    props.addTaskHandler(inputValue);
+    if (inputValue.trim().length > 0) {
+      props.addTaskHandler(inputValue);
+    }
     setInputValue("");
   };
 
