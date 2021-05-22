@@ -8,7 +8,10 @@
   transition: color 0.2s;
 }
 
-.button:hover,
-.button:active {
+.button:hover {
   color: var(--buttonHover);
+}
+
+.button--active {
+  color: #3a7bfd;
 }

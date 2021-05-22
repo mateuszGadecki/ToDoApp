@@ -17,8 +17,34 @@ const Tasks = (props) => {
 
   if (props.loading) {
     singleTask = <Spinner />;
-  } else {
+  } else if (props.currFilter === "All") {
     singleTask = props.toDoList.map((e) => {
+      return (
+        <SingleTask
+          key={e.id}
+          taskTitle={e.title}
+          completed={e.completed}
+          taskId={e.id}
+          removeHandler={props.onRemoveTask}
+          checkboxHandler={props.onCompletedTask}
+        />
+      );
+    });
+  } else if (props.currFilter === "Active") {
+    singleTask = props.active.map((e) => {
+      return (
+        <SingleTask
+          key={e.id}
+          taskTitle={e.title}
+          completed={e.completed}
+          taskId={e.id}
+          removeHandler={props.onRemoveTask}
+          checkboxHandler={props.onCompletedTask}
+        />
+      );
+    });
+  } else if (props.currFilter === "Completed") {
+    singleTask = props.completed.map((e) => {
       return (
         <SingleTask
           key={e.id}
@@ -35,7 +61,11 @@ const Tasks = (props) => {
   return (
     <div className={classes.Tasks}>
       <CreateTask addTaskHandler={props.onAddTask} />
-      <TaskNav tasksLeft={props.active} />
+      <TaskNav
+        tasksLeft={props.active}
+        filterHandler={props.onDisplayFilteredTasks}
+        currFilter={props.currFilter}
+      />
       <ul className={classes.Tasks__List}>{singleTask}</ul>
     </div>
   );
@@ -46,6 +76,8 @@ const mapStateToProps = (state) => {
     toDoList: state.toDoList,
     loading: state.loading,
     active: state.active,
+    currFilter: state.currFilter,
+    completed: state.completed,
   };
 };
 
@@ -56,6 +88,8 @@ const mapDispatchToProps = (dispatch) => {
     onRemoveTask: (id) => dispatch(actions.removeTask(id)),
     onCompletedTask: (id, completionStatus) =>
       dispatch(actions.completedTask(id, completionStatus)),
+    onDisplayFilteredTasks: (currFilter) =>
+      dispatch(actions.displayFilteredTasks(currFilter)),
   };
 };
 

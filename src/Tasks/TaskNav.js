@@ -3,6 +3,9 @@ import Button from "../shared/Button";
 import classes from "./TaskNav.module.css";
 
 const TaskNav = (props) => {
+  const currFilterHandler = (e) => {
+    props.filterHandler(e.target.value);
+  };
   return (
     <div className={classes.TaskNav}>
       <p className={classes.TaskNav__amount}>
@@ -10,13 +13,19 @@ const TaskNav = (props) => {
       </p>
       <ul className={classes.TaskNav__filters}>
         <li>
-          <Button>All</Button>
+          <Button currFilter={props.currFilter} clicked={currFilterHandler}>
+            All
+          </Button>
         </li>
         <li>
-          <Button>Active</Button>
+          <Button currFilter={props.currFilter} clicked={currFilterHandler}>
+            Active
+          </Button>
         </li>
         <li>
-          <Button>Completed</Button>
+          <Button currFilter={props.currFilter} clicked={currFilterHandler}>
+            Completed
+          </Button>
         </li>
       </ul>
       <Button>Clear Completed</Button>
