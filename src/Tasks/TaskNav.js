@@ -28,7 +28,7 @@ const TaskNav = (props) => {
           </Button>
         </li>
       </ul>
-      <Button>Clear Completed</Button>
+      <Button clicked={props.deleteCompletedHandler}>Clear Completed</Button>
     </div>
   );
 };

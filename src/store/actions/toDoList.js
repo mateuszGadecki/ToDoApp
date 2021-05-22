@@ -49,6 +49,12 @@ export const displayFilteredTasks = (currFilter) => {
   };
 };
 
+export const clearCompleted = () => {
+  return {
+    type: actionTypes.CLEAR_COMPLETED,
+  };
+};
+
 export const initToDoList = () => {
   return (dispatch) => {
     dispatch(initToDoListStart());

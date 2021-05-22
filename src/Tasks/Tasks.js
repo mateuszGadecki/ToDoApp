@@ -65,6 +65,7 @@ const Tasks = (props) => {
         tasksLeft={props.active}
         filterHandler={props.onDisplayFilteredTasks}
         currFilter={props.currFilter}
+        deleteCompletedHandler={props.onClearCompleted}
       />
       <ul className={classes.Tasks__List}>{singleTask}</ul>
     </div>
@@ -90,6 +91,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actions.completedTask(id, completionStatus)),
     onDisplayFilteredTasks: (currFilter) =>
       dispatch(actions.displayFilteredTasks(currFilter)),
+    onClearCompleted: () => dispatch(actions.clearCompleted()),
   };
 };
 

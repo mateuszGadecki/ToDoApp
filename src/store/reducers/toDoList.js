@@ -107,6 +107,15 @@ const displayFilteredTasks = (state, action) => {
   };
 };
 
+const clearCompleted = (state, action) => {
+  const activeTasks = [...state.active];
+  return {
+    ...state,
+    toDoList: activeTasks,
+    completed: [],
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_TODOLIST:
@@ -123,6 +132,8 @@ const reducer = (state = initialState, action) => {
       return completedTask(state, action);
     case actionTypes.DISPLAY_FILTERED_TASKS:
       return displayFilteredTasks(state, action);
+    case actionTypes.CLEAR_COMPLETED:
+      return clearCompleted(state, action);
     default:
       return state;
   }
