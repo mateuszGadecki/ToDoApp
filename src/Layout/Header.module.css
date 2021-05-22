@@ -21,3 +21,22 @@
   filter: invert(100%) sepia(5%) saturate(272%) hue-rotate(220deg)
     brightness(117%) contrast(100%);
 }
+
+@media (max-width: 1540px) {
+  .header {
+    width: 45%;
+  }
+}
+@media (max-width: 1260px) {
+  .header {
+    width: 60%;
+  }
+}
+@media (max-width: 950px) {
+  .header {
+    width: 80%;
+  }
+  .header__title {
+    font-size: 3em;
+  }
+}

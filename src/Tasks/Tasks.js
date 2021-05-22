@@ -41,7 +41,7 @@ const Tasks = (props) => {
 
   if (props.loading) {
     singleTask = (
-      <CSSTransition>
+      <CSSTransition timeout={0}>
         <Spinner />
       </CSSTransition>
     );

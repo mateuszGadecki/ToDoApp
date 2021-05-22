@@ -28,3 +28,25 @@
   transform: translateX(100%);
   transition: all 0.4s;
 }
+
+@media (max-width: 1540px) {
+  .Tasks {
+    width: 45%;
+  }
+}
+@media (max-width: 1260px) {
+  .Tasks {
+    width: 60%;
+  }
+}
+
+@media (max-width: 950px) {
+  .Tasks {
+    width: 80%;
+  }
+}
+@media (max-width: 710px) {
+  .Tasks {
+    width: 92%;
+  }
+}

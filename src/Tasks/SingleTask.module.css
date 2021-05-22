@@ -14,6 +14,7 @@
 .SingleTask__taskDescription {
   color: var(--taskDescription);
   font-size: 1.4rem;
+  overflow-y: auto;
 }
 
 .SingleTask__taskDescription--completed {
@@ -93,4 +94,18 @@
   border: solid white;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
+}
+
+@media (max-width: 950px) {
+  .SingleTask__taskDescription {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .SingleTask__taskDescription {
+    font-size: 1rem;
+    margin: 0 2rem 0 2.5rem;
+    text-align: center;
+  }
 }

@@ -25,3 +25,17 @@
   position: absolute;
   right: 2.5rem;
 }
+
+@media (max-width: 950px) {
+  .CreateTask__input {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .CreateTask__input {
+    font-size: 1rem;
+    padding-left: 0.8rem;
+    padding-right: 7rem;
+  }
+}
