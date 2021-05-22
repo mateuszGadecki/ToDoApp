@@ -2,7 +2,6 @@ import classes from "./Button.module.css";
 
 const Button = (props) => {
   let toggleActiveClass = [];
-  console.log(props.currFilter);
   props.currFilter === props.children
     ? (toggleActiveClass = [
         classes.button,

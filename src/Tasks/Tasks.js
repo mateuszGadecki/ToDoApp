@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
+import TransitionGroup from "react-transition-group/TransitionGroup";
+import CSSTransition from "react-transition-group/CSSTransition";
 
 import CreateTask from "./CreateTask";
 import TaskNav from "./TaskNav";
@@ -14,47 +16,46 @@ const Tasks = (props) => {
   }, []);
 
   let singleTask;
-
-  if (props.loading) {
-    singleTask = <Spinner />;
-  } else if (props.currFilter === "All") {
-    singleTask = props.toDoList.map((e) => {
-      return (
+  const mapTasks = (e) => {
+    return (
+      <CSSTransition
+        timeout={300}
+        classNames={{
+          enter: `${classes["Tasks__ListItem--enter"]}`,
+          enterActive: `${classes["Tasks__ListItem--enter-active"]}`,
+          exit: `${classes["Tasks__ListItem--exit"]}`,
+          exitActive: `${classes["Tasks__ListItem--exit-active"]}`,
+        }}
+        key={e.id}
+      >
         <SingleTask
-          key={e.id}
           taskTitle={e.title}
           completed={e.completed}
           taskId={e.id}
           removeHandler={props.onRemoveTask}
           checkboxHandler={props.onCompletedTask}
         />
-      );
+      </CSSTransition>
+    );
+  };
+
+  if (props.loading) {
+    singleTask = (
+      <CSSTransition>
+        <Spinner />
+      </CSSTransition>
+    );
+  } else if (props.currFilter === "All") {
+    singleTask = props.toDoList.map((e) => {
+      return mapTasks(e);
     });
   } else if (props.currFilter === "Active") {
     singleTask = props.active.map((e) => {
-      return (
-        <SingleTask
-          key={e.id}
-          taskTitle={e.title}
-          completed={e.completed}
-          taskId={e.id}
-          removeHandler={props.onRemoveTask}
-          checkboxHandler={props.onCompletedTask}
-        />
-      );
+      return mapTasks(e);
     });
   } else if (props.currFilter === "Completed") {
     singleTask = props.completed.map((e) => {
-      return (
-        <SingleTask
-          key={e.id}
-          taskTitle={e.title}
-          completed={e.completed}
-          taskId={e.id}
-          removeHandler={props.onRemoveTask}
-          checkboxHandler={props.onCompletedTask}
-        />
-      );
+      return mapTasks(e);
     });
   }
 
@@ -67,7 +68,9 @@ const Tasks = (props) => {
         currFilter={props.currFilter}
         deleteCompletedHandler={props.onClearCompleted}
       />
-      <ul className={classes.Tasks__List}>{singleTask}</ul>
+      <TransitionGroup component="ul" className={classes.Tasks__List}>
+        {singleTask}
+      </TransitionGroup>
     </div>
   );
 };

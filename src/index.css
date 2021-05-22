@@ -16,6 +16,7 @@ body {
   background-image: var(--backgroundImage);
   background-repeat: no-repeat;
   background-size: 100vw 30rem;
+  overflow-x: hidden;
 }
 
 :root {

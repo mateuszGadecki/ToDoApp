@@ -8,3 +8,23 @@
   margin: 2rem 0 0 0;
   padding: 0 0 5rem 0;
 }
+
+.Tasks__ListItem--enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.Tasks__ListItem--enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.4s;
+}
+
+.Tasks__ListItem--exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.Tasks__ListItem--exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.4s;
+}
