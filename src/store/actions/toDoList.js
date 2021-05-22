@@ -34,6 +34,14 @@ export const removeTask = (id) => {
   };
 };
 
+export const completedTask = (id, completionStatus) => {
+  return {
+    type: actionTypes.COMPLETED_TASK,
+    id: id,
+    completionStatus: completionStatus,
+  };
+};
+
 export const initToDoList = () => {
   return (dispatch) => {
     dispatch(initToDoListStart());
@@ -41,7 +49,6 @@ export const initToDoList = () => {
       .then((response) => response.json())
       .then((response) => {
         dispatch(setToDoList(response));
-        console.log(response);
       })
       .catch((error) => {
         dispatch(initToDoListFail(error));

@@ -55,6 +55,16 @@ export const removeTask = (state, action) => {
   };
 };
 
+export const completedTask = (state, action) => {
+  let currentToDoList = [...state.toDoList];
+  const index = currentToDoList.findIndex((id) => id.id === action.id);
+  currentToDoList[index].completed = action.completionStatus;
+  return {
+    ...state,
+    toDoList: currentToDoList,
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_TODOLIST:
@@ -67,6 +77,8 @@ const reducer = (state = initialState, action) => {
       return addTask(state, action);
     case actionTypes.REMOVE_TASK:
       return removeTask(state, action);
+    case actionTypes.COMPLETED_TASK:
+      return completedTask(state, action);
     default:
       return state;
   }
