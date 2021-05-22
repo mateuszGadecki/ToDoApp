@@ -20,6 +20,20 @@ export const initToDoListStart = () => {
   };
 };
 
+export const addTask = (task) => {
+  return {
+    type: actionTypes.ADD_TASK,
+    task: task,
+  };
+};
+
+export const removeTask = (id) => {
+  return {
+    type: actionTypes.REMOVE_TASK,
+    id: id,
+  };
+};
+
 export const initToDoList = () => {
   return (dispatch) => {
     dispatch(initToDoListStart());

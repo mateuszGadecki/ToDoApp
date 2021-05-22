@@ -1,1 +1,1 @@
-export { initToDoList } from "./toDoList";
+export { initToDoList, addTask, removeTask } from "./toDoList";
